@@ -7,8 +7,7 @@ var validateEmail = function(email) {
 
 var UserSchema=mongoose.Schema({
     _id:{
-        type:String,
-        required:true
+        type:String
     },
     username:{
         type:String,
@@ -24,7 +23,7 @@ var UserSchema=mongoose.Schema({
     password:{
         type:String,
         required:true,
-        minlength: 6
+        min:6
     },
     address:{
         houseno:{
@@ -49,7 +48,8 @@ var UserSchema=mongoose.Schema({
             length:6
         }
     }
-});
+},
+{ _id: false });
 
 
 module.exports = mongoose.model("user", UserSchema);
